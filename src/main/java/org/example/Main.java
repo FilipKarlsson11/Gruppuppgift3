@@ -1,28 +1,19 @@
 package org.example;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+
 public class Main {
+    public static void main3(String[] args) {
 
-    public static void main(String[] args) {
-
-    }
-
-    public class Calculator {
-
-        private int number;
-
-
-        private Calculator(int number) {
-
-            this.number = numbers;
-
+        try{
+            Class<?> clazz = Class.forName("Calculator");
+            Constructor<?> clazzConstructor =  clazz.getDeclaredConstructor(int.class);
+            clazzConstructor .setAccessible(true);
+            Calculator calculator2 = (Calculator) clazzConstructor.newInstance(1);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
-
-        private int add(int other) {
-
-            return this.number + other;
-
-        }
-
     }
 }
